@@ -1,18 +1,25 @@
 # 昕声 · 私人日记
 
-在线地址：https://kaeai226-gif.github.io/xinsheng/
+在线体验：https://kaeai226-gif.github.io/xinsheng/
 
-这是静态 PWA 项目，并非已经部署的网址或原生 iOS App。
+清新手账风格的静态 PWA 网页体验版，支持手动日记、心情标签、照片、主动录音及文字 / JSON 备份导出。
 
-## 用 iPhone 发布（无需 Mac）
-1. 在 GitHub 网站创建一个新的公开仓库，例如 `xinsheng-web`。
-2. 上传本文件夹的 `index.html`、`manifest.webmanifest`、`icon.svg`、`sw.js` 到仓库根目录（不要只上传 ZIP）。
-3. 仓库 Settings → Pages → Build and deployment → Deploy from a branch → `main` / `(root)` → Save。
-4. 等待 GitHub Pages 发布。网站通常为 `https://你的用户名.github.io/xinsheng-web/`，以 GitHub 实际显示的链接为准。
-5. 在 iPhone Safari 打开已发布网址，分享 → 添加到主屏幕。
+## iPhone 使用
+
+用 Safari 打开在线网址，点击「分享 → 添加到主屏幕」即可便捷访问。录音需要允许麦克风权限，锁屏或进入后台可能停止。
+
+## 部署
+
+已部署至本仓库 GitHub Pages，发布源为 main 分支 / (root)，启用 HTTPS。修改根目录文件并提交后会自动重新发布，无需构建命令。
+
+- index.html：页面与交互
+- manifest.webmanifest：PWA 配置
+- icon.svg：应用图标
+- sw.js：离线资源缓存
+- .nojekyll：静态文件发布
 
 ## 隐私与限制
-- 数据只存在当前浏览器本地存储，未上传到服务器；GitHub Pages 托管的是公开前端源码，请勿把私人日记上传到 GitHub 仓库。
-- 录音须主动开启并获得相关人员同意；切到后台可能停止。
-- 音频以 Data URL 存入浏览器 localStorage，容量有限，适合短录音测试；长期录音需要改用 IndexedDB。
-- 不支持 AI 转写、AI 日记、Face ID、Apple Watch、iCloud、后台监听。定期导出 JSON 备份。
+
+数据只存在当前浏览器 localStorage，不自动同步；清理网站数据可能导致丢失，请定期导出备份。照片与音频容量有限，适合短录音体验。请勿把私人日记、录音、照片或 API 密钥提交到公开仓库。
+
+此版本尚未接入 AI 转写、AI 日记生成、Face ID、Apple Watch、iCloud、后台监听，也未实现录音 30 天自动清理及独立音频文件导出。
