@@ -5,7 +5,7 @@ self.onmessage = async ({data}) => {
   busy = true;
   try {
     self.postMessage({type:'status', text:'正在加载本地转写引擎…'});
-    const {pipeline, env} = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.2/dist/transformers.web.js');
+    const {pipeline, env} = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.2/dist/transformers.min.js');
     env.allowLocalModels = false;
     env.backends.onnx.wasm.numThreads = 1;
     env.backends.onnx.wasm.proxy = false;
@@ -25,3 +25,4 @@ self.onmessage = async ({data}) => {
   } catch(e) { pipe=null; self.postMessage({type:'error',text:e.message || String(e)}); }
   finally { busy=false; }
 };
+
